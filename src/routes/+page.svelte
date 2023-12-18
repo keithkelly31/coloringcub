@@ -1,9 +1,14 @@
 <script>
+	import { page } from '$app/stores';
+	import Alert from '$components/alert.svelte';
 	import Heading from '$components/dynamic/heading.svelte';
 	import Main from '$components/elements/main.svelte';
 	import P from '$components/elements/p.svelte';
 	import Section from '$components/elements/section.svelte';
-	// import EmailSubscription from '$components/forms/email-subscription.svelte';
+	import SignUp from '$components/forms/sign-up.svelte';
+
+	/** @type { any } */
+	let response;
 </script>
 
 <Main>
@@ -20,15 +25,10 @@
 		stickers, and more.
 	</P>
 
-	<!-- <P>
+	<P>
 		We are just starting, but we are excited to launch our designs. You can stay current on what we
 		are developing through our social media channels below, or we encourage you to subscribe to our
 		email list.
-	</P> -->
-
-	<P>
-		We are just starting, but we are excited to launch our designs. You can stay current on what we
-		are developing through our social media channels below.
 	</P>
 
 	<Section class="flex gap-8 justify-center">
@@ -55,5 +55,27 @@
 		</a>
 	</Section>
 
-	<!-- <EmailSubscription /> -->
+	{#if !$page.data.session}
+		<Section class="bg-galliano-base dark:bg-galliano-light p-4 rounded-lg text-secondary-darkest">
+			<Heading type="h2">Be In The Know</Heading>
+
+			{#if response && response.status === 200}
+				<Alert style={response.type}>
+					{response.data.message}
+				</Alert>
+			{:else}
+				{#if response && response.status === 500}
+					<Alert style={response.type}>
+						{response.data.message}
+					</Alert>
+				{/if}
+
+				<SignUp
+					bind:response
+					inputClass="!bg-galliano-light dark:!bg-galliano-base !border-galliano-dark !placeholder-galliano-dark dark:!placeholder-galliano-lightest !text-galliano-dark"
+					labelClass="!text-secondary-darkest"
+				/>
+			{/if}
+		</Section>
+	{/if}
 </Main>

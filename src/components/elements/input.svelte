@@ -18,7 +18,11 @@
 </script>
 
 {#if label}
-	<label for={id} class="block mb-2 text-sm font-semibold text-secondary-darkest dark:text-white">
+	<label
+		for={id}
+		class="block mb-2 text-sm font-semibold text-secondary-darkest dark:text-white {$$restProps.labelClass ||
+			''}"
+	>
 		{label}
 	</label>
 {/if}

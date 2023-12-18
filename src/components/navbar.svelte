@@ -1,14 +1,13 @@
 <script>
+	import { invalidateAll } from '$app/navigation';
 	import { page } from '$app/stores';
-	import { redirect } from '@sveltejs/kit';
 	import Button from './elements/button.svelte';
 	// import Icon from './dynamic/icon.svelte';
-	import { redirects } from '$lib/config';
-	import Signin from './modals/signin.svelte';
+	import SignIn from './modals/sign-in.svelte';
 
 	async function signOut() {
 		await $page.data.supabase.auth.signOut();
-		throw redirect(307, redirects.signedOut);
+		invalidateAll();
 	}
 </script>
 
@@ -37,12 +36,12 @@
 			<ul
 				class="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0"
 			>
-				<li>
+				<!-- <li>
 					<a
 						href="/about"
 						class="block py-2 px-3 text-white hover:text-primary-lightest rounded md:p-0">About</a
 					>
-				</li>
+				</li> -->
 				{#if $page.data.session}
 					<li>
 						<a
@@ -61,7 +60,7 @@
 						</Button>
 					</li>
 				{:else}
-					<li><Signin /></li>
+					<li><SignIn /></li>
 				{/if}
 			</ul>
 		</div>

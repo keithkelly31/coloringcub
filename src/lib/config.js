@@ -1,6 +1,6 @@
 export const redirects = {
   signedIn: "/dashboard",
-  signedOut: "/signin"
+  signedOut: "/"
 }
 
 export const colors = {

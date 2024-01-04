@@ -7,7 +7,7 @@
 	class:grid={fullPage}
 	class:min-h-full={fullPage}
 	class:place-items-center={fullPage}
-	class:max-w-3xl={!fullPage}
+	class:max-w-5xl={!fullPage}
 	class:mx-auto={!fullPage}
 >
 	<slot />

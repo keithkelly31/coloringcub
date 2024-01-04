@@ -6,6 +6,7 @@
 	import P from '$components/elements/p.svelte';
 	import Section from '$components/elements/section.svelte';
 	import SignUp from '$components/forms/sign-up.svelte';
+	import Socials from '$components/socials.svelte';
 
 	/** @type { any } */
 	let response;
@@ -31,29 +32,7 @@
 		email list.
 	</P>
 
-	<Section class="flex gap-8 justify-center">
-		<a
-			class="text-di-serria-base hover:text-di-serria-dark"
-			href="https://www.facebook.com/coloringcub"
-		>
-			<i class="bi-facebook text-4xl"></i>
-		</a>
-
-		<a
-			class="text-keppel-base hover:text-keppel-dark"
-			href="https://www.instagram.com/coloringcub/"
-		>
-			<i class="bi-instagram text-4xl"></i>
-		</a>
-
-		<a class="text-plum-base hover:text-plum-dark" href="https://www.pinterest.com/coloringcub">
-			<i class="bi-pinterest text-4xl"></i>
-		</a>
-
-		<a class="text-galliano-base hover:text-galliano-dark" href="https://twitter.com/coloringcub">
-			<i class="bi-twitter-x text-4xl"></i>
-		</a>
-	</Section>
+	<Socials class="justify-center" />
 
 	{#if !$page.data.session}
 		<Section class="bg-galliano-base dark:bg-galliano-light p-4 rounded-lg text-secondary-darkest">

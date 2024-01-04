@@ -1,3 +1,4 @@
+import { dev } from '$app/environment';
 import { fail } from '@sveltejs/kit';
 
 /** @type {import('./$types').Actions} */
@@ -19,7 +20,7 @@ export const actions = {
     }
    }
 
-    const { error } = await supabase.auth.signInWithOtp({ email, options: { data: { first_name } } } );
+    const { error } = await supabase.auth.signInWithOtp({ email, options: { data: { first_name }, emailRedirectTo: dev ? "http://127.0.0.1:5173/auth" : "https://www.coloringcub.com/auth" } } );
 
     if(error) {
       return fail(500, { message: error.message });

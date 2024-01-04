@@ -1,5 +1,5 @@
 export const redirects = {
-  signedIn: "/dashboard",
+  signedIn: "/member/dashboard",
   signedOut: "/"
 }
 

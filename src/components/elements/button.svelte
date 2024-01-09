@@ -1,7 +1,7 @@
 <script>
 	// @ts-nocheck
 
-	/** @type { "danger" | "primary" | "secondary" } */
+	/** @type { "danger" | "light" | "primary" | "secondary" } */
 	export let style = 'primary';
 
 	/** @type { HTMLButtonElement.type } */

@@ -2,66 +2,58 @@
 	import { page } from '$app/stores';
 	import Icon from './dynamic/icon.svelte';
 	import SignIn from './modals/sign-in.svelte';
+	import NavbarLink from './navbar-link.svelte';
 </script>
 
 <nav class="bg-primary-base fixed top-0 left-0 w-full z-40">
-	<div class="flex flex-wrap items-center justify-between mx-auto p-4 relative">
-		<div>
+	<div class="flex items-center justify-between mx-auto p-4 relative">
+		<a href="/" class="flex items-center">
 			<enhanced:img
 				src="../assets/logo-sticker.png?w=100"
 				alt="Cute colorful bear cub"
 				class="absolute top-0 left-0"
 			/>
 
-			<a
-				href="/"
-				class="text-2xl font-semibold whitespace-nowrap ml-24 text-white hover:text-primary-lightest"
+			<span
+				class="hidden md:inline-block text-2xl font-semibold whitespace-nowrap ml-24 text-white hover:text-primary-lightest"
 			>
 				Coloring Cub
-			</a>
-		</div>
+			</span>
+		</a>
 
-		<!-- <button class="flex md:hidden" on:click={() => console.log('clicked')}>
-			<Icon icon="list" style="bootstrap" class="text-white text-3xl" />
-		</button> -->
+		<ul class="font-medium p-0 mt-0 flex flex-row gap-6 md:gap-8">
+			<!-- <NavbarLink class="block md:hidden" href="/menu">
+				<Icon class="text-3xl" icon="list" style="bootstrap" />
+			</NavbarLink> -->
 
-		<div class="hidden w-full md:block md:w-auto">
-			<ul
-				class="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0"
-			>
-				<li>
-					<a
-						href="/store"
-						class="block py-2 px-3 text-white hover:text-primary-lightest rounded md:p-0">Store</a
-					>
-				</li>
-				<!-- <li>
-					<a
-						href="/about"
-						class="block py-2 px-3 text-white hover:text-primary-lightest rounded md:p-0">About</a
-					>
-				</li> -->
-				{#if $page.data.session}
-					<li>
-						<a
-							href="/member/dashboard"
-							class="block py-2 px-3 text-white hover:text-primary-lightest rounded md:p-0"
-						>
-							Dashboard
-						</a>
-					</li>
-				{:else}
-					<li><SignIn /></li>
-				{/if}
+			<NavbarLink href="/store">
+				<Icon class="md:hidden text-xl" icon="shop" style="bootstrap" />
+				<span class="hidden md:inline-block">Store</span>
+			</NavbarLink>
 
-				<a
-					href="/store/cart"
-					class="flex items-center gap-2 py-2 px-3 text-white hover:text-primary-lightest rounded md:p-0"
-				>
-					<Icon icon="bag" style="bootstrap" />
-					<span class="font-semibold">0</span>
-				</a>
-			</ul>
-		</div>
+			<NavbarLink href="/blog">
+				<Icon class="md:hidden text-xl" icon="newspaper" style="bootstrap" />
+				<span class="hidden md:inline-block">Blog</span>
+			</NavbarLink>
+
+			<NavbarLink href="/about">
+				<Icon class="md:hidden text-xl" icon="info-circle" style="bootstrap" />
+				<span class="hidden md:inline-block">About</span>
+			</NavbarLink>
+
+			{#if $page.data.session}
+				<NavbarLink href="/member/dashboard">
+					<Icon class="md:hidden text-xl" icon="speedometer2" style="bootstrap" />
+					<span class="hidden md:inline-block">Dashboard</span>
+				</NavbarLink>
+			{:else}
+				<li><SignIn /></li>
+			{/if}
+
+			<NavbarLink class="flex items-center gap-2" href="/store/cart">
+				<Icon class="text-xl" icon="bag" style="bootstrap" />
+				<span class="font-semibold">0</span>
+			</NavbarLink>
+		</ul>
 	</div>
 </nav>

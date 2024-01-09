@@ -5,4 +5,4 @@
 	export let data;
 </script>
 
-<Heading>Your Bag</Heading>
+<Heading>Blog</Heading>

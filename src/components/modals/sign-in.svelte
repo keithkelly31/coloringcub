@@ -10,7 +10,7 @@
 </script>
 
 <Modal
-	buttonClass="!p-0 !m-0 hover:bg-transparent !ring-0"
+	buttonClass="!p-0 !m-0 hover:bg-transparent !ring-0 block py-2 px-3 text-white hover:text-primary-lightest rounded md:p-0"
 	title={response && response.status === 404 ? 'Sign Up' : 'Sign In'}
 >
 	<span slot="buttonText">Sign In</span>

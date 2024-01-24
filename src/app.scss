@@ -1,0 +1,15 @@
+@use "@picocss/pico/scss/pico.scss" with ($semantic-root-element: "#root",
+  $enable-semantic-container: true,
+  $theme-color: "purple"
+);
+
+:root {
+  --pico-font-family: "Quicksand Variable",
+    var(--pico-font-family-sans-serif);
+}
+
+[data-theme=light],
+:root:not([data-theme=dark]) {
+  --pico-box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+}

@@ -1,5 +1,4 @@
 <script>
-	import images from '$assets/products/index.js';
 	import Heading from '$components/dynamic/heading.svelte';
 	import Icon from '$components/dynamic/icon.svelte';
 	import A from '$components/elements/a.svelte';
@@ -36,10 +35,12 @@
 	</Heading>
 
 	<Section class="grid place-content-center">
-		<enhanced:img
+		<img
 			class="rounded-lg shadow-lg"
-			src={images[product.src]}
+			src={product.src}
 			alt="Cute colorful bear cub"
+			height="1100"
+			width="850"
 		/>
 	</Section>
 

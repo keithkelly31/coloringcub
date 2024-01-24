@@ -1,6 +1,5 @@
 <script>
 	import { page } from '$app/stores';
-	import images from '$assets/products/coloring-pages/cute-baby-animals/index';
 	import Heading from '$components/dynamic/heading.svelte';
 	import Button from '$components/elements/button.svelte';
 	import Main from '$components/elements/main.svelte';
@@ -21,7 +20,7 @@
 			{#each products as { alt, name, price, slug, src } (slug)}
 				<div class="flex flex-col gap-6">
 					<a href="/store/product/{slug}" class="flex-1 space-y-6">
-						<enhanced:img class="rounded-lg shadow-md" src={images[src]} {alt} />
+						<img class="rounded-lg shadow-md" {src} {alt} />
 						<strong class="flex items-start justify-between">
 							<span>{name}</span>
 							<span>${price}</span>

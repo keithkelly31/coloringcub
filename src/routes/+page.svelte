@@ -1,62 +1,125 @@
-<script>
-	import { page } from '$app/stores';
-	import Alert from '$components/alert.svelte';
-	import Heading from '$components/dynamic/heading.svelte';
-	import Main from '$components/elements/main.svelte';
-	import P from '$components/elements/p.svelte';
-	import Section from '$components/elements/section.svelte';
-	import SignUp from '$components/forms/sign-up.svelte';
-	import Socials from '$components/socials.svelte';
+<section>
+	<hgroup>
+		<h1>Coloring Cub</h1>
+		<h2>Coming together through community and sharing</h2>
+	</hgroup>
 
-	/** @type { any } */
-	let response;
-</script>
+	<p>
+		Coloring Cub is a community for parents, educators, and children / students to share your
+		experiences through artistic expressions.
+	</p>
 
-<Main prose>
-	<Section>
-		<div class="grid place-content-center">
-			<enhanced:img src="../assets/logo-sticker.png?w=300" alt="Cute colorful bear cub" />
-		</div>
+	<p>
+		We work very hard to provide a safe, understanding space where members can bounce ideas and
+		share their creative endevours without fear of negative feedback. Instead we encourage you to
+		share your work and your story to provide context around your creative expression.
+	</p>
 
-		<Heading class="text-center" type="h1">Coloring Cub</Heading>
+	<p>
+		we want to be as transparent as possible. The reason there is a subscription fee to join
+		Coloring Cub is first and foremost a barrier of entry to reduce the amount of spam and increase
+		the quality of the content on the site.
+	</p>
+</section>
 
-		<P>
-			Hello, and welcome to our colorful world! We're Keith and Lynn, the creative minds behind
-			Coloring Cub. In our world of artistic expression, we're on a mission to spread creativity and
-			fun to all ages through our handcrafted coloring pages, coloring books, children's books,
-			stickers, and more.
-		</P>
+<section>
+	<h3>Latest Coloring Pages</h3>
 
-		<P>
-			We are just starting, but we are excited to launch our designs. You can stay current on what
-			we are developing through our social media channels below, or we encourage you to subscribe to
-			our email list.
-		</P>
-	</Section>
+	<div class="grid">
+		<article>
+			<img
+				src="https://images.unsplash.com/photo-1620398722262-969d8f2bc875?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+				alt=""
+			/>
+			<h4>Coloring Page Name</h4>
+			<p>
+				Fugiat incididunt Lorem laboris est adipisicing veniam esse duis pariatur consectetur dolore
+				cupidatat. Consectetur proident voluptate sit mollit enim sit enim veniam. Magna adipisicing
+				dolor commodo fugiat id ullamco cupidatat sit cillum.
+			</p>
+			<a href="/">Get more details...</a>
+		</article>
 
-	<Socials class="justify-center" />
+		<article>
+			<img
+				src="https://images.unsplash.com/photo-1620398722262-969d8f2bc875?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+				alt=""
+			/>
+			<h4>Coloring Page Name</h4>
+			<p>
+				Fugiat incididunt Lorem laboris est adipisicing veniam esse duis pariatur consectetur dolore
+				cupidatat. Consectetur proident voluptate sit mollit enim sit enim veniam. Magna adipisicing
+				dolor commodo fugiat id ullamco cupidatat sit cillum.
+			</p>
+			<a href="/">Get more details...</a>
+		</article>
 
-	{#if !$page.data.session}
-		<Section class="bg-galliano-base dark:bg-galliano-light p-4 rounded-lg text-secondary-darkest">
-			<Heading type="h2">Be In The Know</Heading>
+		<article>
+			<img
+				src="https://images.unsplash.com/photo-1620398722262-969d8f2bc875?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+				alt=""
+			/>
+			<h4>Coloring Page Name</h4>
+			<p>
+				Fugiat incididunt Lorem laboris est adipisicing veniam esse duis pariatur consectetur dolore
+				cupidatat. Consectetur proident voluptate sit mollit enim sit enim veniam. Magna adipisicing
+				dolor commodo fugiat id ullamco cupidatat sit cillum.
+			</p>
+			<a href="/">Get more details...</a>
+		</article>
+	</div>
+</section>
 
-			{#if response && response.status === 200}
-				<Alert style={response.type}>
-					{response.data.message}
-				</Alert>
-			{:else}
-				{#if response && response.status === 500}
-					<Alert style={response.type}>
-						{response.data.message}
-					</Alert>
-				{/if}
+<section>
+	<h3>Latest Blog Posts</h3>
 
-				<SignUp
-					bind:response
-					inputClass="!bg-galliano-light dark:!bg-galliano-base !border-galliano-dark !placeholder-galliano-dark dark:!placeholder-galliano-lightest !text-galliano-dark"
-					labelClass="!text-secondary-darkest"
-				/>
-			{/if}
-		</Section>
-	{/if}
-</Main>
+	<div class="grid">
+		<article>
+			<img
+				src="https://images.unsplash.com/photo-1620398722262-969d8f2bc875?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+				alt=""
+			/>
+			<h4>Blog Post Title</h4>
+			<p>
+				Fugiat incididunt Lorem laboris est adipisicing veniam esse duis pariatur consectetur dolore
+				cupidatat. Consectetur proident voluptate sit mollit enim sit enim veniam. Magna adipisicing
+				dolor commodo fugiat id ullamco cupidatat sit cillum.
+			</p>
+			<a href="/">Read more...</a>
+		</article>
+
+		<article>
+			<img
+				src="https://images.unsplash.com/photo-1620398722262-969d8f2bc875?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+				alt=""
+			/>
+			<h4>Blog Post Title</h4>
+			<p>
+				Fugiat incididunt Lorem laboris est adipisicing veniam esse duis pariatur consectetur dolore
+				cupidatat. Consectetur proident voluptate sit mollit enim sit enim veniam. Magna adipisicing
+				dolor commodo fugiat id ullamco cupidatat sit cillum.
+			</p>
+			<a href="/">Read more...</a>
+		</article>
+
+		<article>
+			<img
+				src="https://images.unsplash.com/photo-1620398722262-969d8f2bc875?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+				alt=""
+			/>
+			<h4>Blog Post Title</h4>
+			<p>
+				Fugiat incididunt Lorem laboris est adipisicing veniam esse duis pariatur consectetur dolore
+				cupidatat. Consectetur proident voluptate sit mollit enim sit enim veniam. Magna adipisicing
+				dolor commodo fugiat id ullamco cupidatat sit cillum.
+			</p>
+			<a href="/">Read more...</a>
+		</article>
+	</div>
+</section>
+
+<style>
+	img {
+		margin-bottom: var(--pico-spacing);
+	}
+</style>

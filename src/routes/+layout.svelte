@@ -1,10 +1,12 @@
 <script>
 	import { invalidate } from '$app/navigation';
-	import Navbar from '$components/navbar.svelte';
+	import Nav from '$components/nav.svelte';
 	import '@fontsource-variable/quicksand';
+	import '@picocss/pico/css/pico.colors.min.css';
+	import '@picocss/pico/css/pico.min.css';
 	import 'bootstrap-icons/font/bootstrap-icons.css';
 	import { onMount } from 'svelte';
-	import '../app.css';
+	import '../app.scss';
 
 	export let data;
 
@@ -24,30 +26,29 @@
 
 <svelte:head>
 	<title>Coloring Cub</title>
-	<link
-		rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-	/>
 	<script defer data-domain="coloringcub.com" src="https://plausible.io/js/script.js"></script>
 </svelte:head>
 
-<!-- <svelte:window
-	on:contextmenu={(e) => {
-		e.preventDefault();
-		return false;
-	}}
-/> -->
+<header>
+	<nav>
+		<ul>
+			<li>
+				<a href="/">
+					<enhanced:img src="../assets/logo-sticker.png?w=100" alt="Cute colorful bear cub" />
+					<strong class="brand">Coloring Cub</strong>
+				</a>
+			</li>
+		</ul>
+		<Nav />
+	</nav>
+</header>
 
-<Navbar />
-
-<slot />
+<main>
+	<slot />
+</main>
 
 <style lang="postcss">
-	:global(html) {
-		@apply h-full;
-	}
-
-	:global(body) {
-		@apply h-full bg-secondary-50 text-lg text-secondary-darkest subpixel-antialiased dark:bg-secondary-darkest dark:text-secondary-lightest;
+	.brand {
+		font-size: calc(var(--pico-font-size) * 1.25);
 	}
 </style>

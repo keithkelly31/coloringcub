@@ -1,10 +1,9 @@
 <script>
 	import { invalidate } from '$app/navigation';
-	import Navbar from '$components/navbar.svelte';
 	import '@fontsource-variable/quicksand';
 	import 'bootstrap-icons/font/bootstrap-icons.css';
 	import { onMount } from 'svelte';
-	import '../app.css';
+	import '../app.scss';
 
 	export let data;
 
@@ -31,23 +30,25 @@
 	<script defer data-domain="coloringcub.com" src="https://plausible.io/js/script.js"></script>
 </svelte:head>
 
-<!-- <svelte:window
-	on:contextmenu={(e) => {
-		e.preventDefault();
-		return false;
-	}}
-/> -->
+<header>
+	<nav>
+		<ul>
+			<li>
+				<a href="/">
+					<enhanced:img src="../assets/logo-sticker.png?w=100" alt="Cute colorful bear cub" />
+					<strong class="brand">Coloring Cub</strong>
+				</a>
+			</li>
+		</ul>
+	</nav>
+</header>
 
-<Navbar />
+<main>
+	<slot />
+</main>
 
-<slot />
-
-<style lang="postcss">
-	:global(html) {
-		@apply h-full;
-	}
-
-	:global(body) {
-		@apply h-full bg-secondary-50 text-lg text-secondary-darkest subpixel-antialiased dark:bg-secondary-darkest dark:text-secondary-lightest;
+<style>
+	.brand {
+		font-size: calc(var(--pico-font-size) * 1.25);
 	}
 </style>
